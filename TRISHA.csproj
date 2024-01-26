@@ -1,10 +1,107 @@
-<Project Sdk="Microsoft.NET.Sdk">
+using System;
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+namespace ConverterAndStoryApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Conversions
+            Console.Write("Enter a value in pounds: ");
+            double pounds = double.Parse(Console.ReadLine());
+            double kilograms = pounds * 0.453592;
+            Console.WriteLine($"{pounds} lbs = {kilograms:F2} kg");
 
-</Project>
+            Console.Write("Enter a value in miles: ");
+            double miles = double.Parse(Console.ReadLine());
+            double kilometers = miles * 1.60934;
+            Console.WriteLine($"{miles} mi = {kilometers:F2} km");
+
+            Console.Write("Enter a value in Fahrenheit: ");
+            double fahrenheit = double.Parse(Console.ReadLine());
+            double celsius = (fahrenheit - 32) * 5 / 9;
+            Console.WriteLine($"{fahrenheit} °F = {celsius:F2} °C");
+
+            // Student ages and average
+            int[] studentAges = new int[10];
+            double totalAge = 0;
+            for (int i = 0; i < studentAges.Length; i++)
+            {
+                Console.Write($"Enter age for student {i + 1}: ");
+                studentAges[i] = int.Parse(Console.ReadLine());
+                totalAge += studentAges[i];
+            }
+            double averageAge = totalAge / studentAges.Length;
+            Console.WriteLine("Student ages: " + string.Join(", ", studentAges));
+            Console.WriteLine("Average age: {0:F2}", averageAge);
+
+            // Fantasy story
+            string heroName = "Eärendil";
+            string swordName = "Narsil";
+            string questItem = "Silmaril";
+            string mentorName = "Galadriel";
+            string villainName = "Morgoth";
+
+            Console.WriteLine("* * * Fantasy Story * * *");
+            Console.WriteLine($"In the realm of Valinor, {heroName} the valiant warrior sought the legendary {swordName}.");
+            Console.WriteLine($"Guided by the wisdom of {mentorName}, they embarked on a perilous quest to retrieve the {questItem} from the clutches of {villainName}.");
+            Console.WriteLine("Their journey led them through enchanted forests, treacherous mountains, and ancient ruins...");
+            // Continue the story with more details and adventures...
+
+            // Part 2
+            // Part 2.1: Number Pattern 1
+            Console.Write("Enter a positive integer: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            if (number <= 0)
+            {
+                Console.WriteLine("Invalid input");
+                return;
+            }
+            for (int i = 1; i <= number; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(j + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+
+            // Part 2.2: Number Pattern 2
+            Console.Write("Enter a positive integer: ");
+            number = Convert.ToInt32(Console.ReadLine());
+            if (number <= 0)
+            {
+                Console.WriteLine("Invalid input");
+                return;
+            }
+            int sum = 0;
+            for (int i = 1; i <= number; i++)
+            {
+                sum += i;
+            }
+            Console.WriteLine("The sum is: " + sum);
+            Console.WriteLine("===============================================================");
+            Console.WriteLine();
+
+            // Part 2.3: Number Pattern 3
+            Console.Write("Enter a positive integer: ");
+            number = Convert.ToInt32(Console.ReadLine());
+            if (number <= 0)
+            {
+                Console.WriteLine("Invalid input");
+                return;
+            }
+            for (int i = number; i >= 1; i--)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(j + " ");
+                }
+            }
+        }
+    }
+}
+
+
